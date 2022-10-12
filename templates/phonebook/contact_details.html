@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} Contact Details {% endblock %}
+{% block content %}
+<div class="my-4">
+        <h1 class="mr-auto h3 mb-0 text-gray-800"> Contact Details</h1>
+</div>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Contact Details</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+
+            <table class="table table-hover" style="width:100%">
+                <tr>
+                    <th>Name:</th>
+                    <td>{{contact.name}}</td>
+                    <th>Phone No:</th>
+                    <td>{{contact.phone_no}}</td>
+
+                </tr>
+                <tr>
+                    <th>Created User:</th>
+                    <td>{{contact.created_user}}</td>
+                    <th>Created At:</th>
+                    <td>{{contact.created_at|date:'d-m-Y h:i a'}}</td>
+                </tr>
+                <tr>
+                    <th>Updated By:</th>
+
+                    <td>{{contact.updated_user| default_if_none:"-"}}</td>
+                    <th>Updated At:</th>
+
+                    <td>{{contact.updated_at|date:'d-m-Y h:i a' | default_if_none:"-" }}</td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="text-right mx-2 my-2">
+            <input type=button class="btn btn-outline-warning" value="Back" onClick="javascript:history.go(-1);">
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
